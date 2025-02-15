@@ -20,11 +20,6 @@ The endpoint expects a JSON payload with the following fields:
 
 **Example: RESPONSE**
 
-
-
-
-
-
 {
   "fullname": {
     "firstname": "Jane",
