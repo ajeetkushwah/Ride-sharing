@@ -9,6 +9,7 @@ The `/users/register` endpoint is used to create a new user account. It validate
 `POST`
 
 ### Endpoint
+
 `/users/register`
 
 ## Request Body
@@ -74,5 +75,71 @@ The endpoint expects a JSON payload with the following fields:
     },
     "email": "jane.doe@example.com"
   }
+}
+```
+
+## /users/profile
+
+### Description
+
+The `/users/profile` endpoint retrieves the authenticated user's profile information. This endpoint requires authentication via JWT token.
+
+### HTTP Method
+
+`GET`
+
+### Endpoint
+
+`/users/profile`
+
+### Headers
+
+- **Authorization**: Bearer {JWT_TOKEN}
+
+### Response
+
+Returns the user profile information if authentication is successful.
+
+**Example: RESPONSE**
+
+```json
+{
+  "user": {
+    "fullname": {
+      "firstname": "Jane",
+      "lastname": "Doe"
+    },
+    "email": "jane.doe@example.com"
+  }
+}
+```
+
+## /users/logout
+
+### Description
+
+The `/users/logout` endpoint invalidates the current user's session/token. This endpoint requires authentication.
+
+### HTTP Method
+
+`POST`
+
+### Endpoint
+
+`/users/logout`
+
+### Headers
+
+- **Authorization**: Bearer {JWT_TOKEN}
+
+### Response
+
+Returns a success message upon successful logout.
+
+**Example: RESPONSE**
+
+```json
+{
+  "message": "Successfully logged out"
 }
 ```
