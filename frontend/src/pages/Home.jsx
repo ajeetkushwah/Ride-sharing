@@ -22,7 +22,7 @@ const Home = () => {
   const [vehiclePanel, setVehiclePanel] = useState(false);
   const [confirmRidePanel, setConfirmRidePanel] = useState(false);
   const [vehicleFound, setVehicleFound] = useState(false);
-  const [waithingForDriver, setWaithingForDriver] = useState(false);
+  const [waitingForDriver, setWaitingForDriver] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -97,7 +97,7 @@ const Home = () => {
 
   useGSAP(
     function () {
-      if (waithingForDriver) {
+      if (waitingForDriver) {
         gsap.to(waitingForDriverRef.current, {
           transform: "translateY(0)",
         });
@@ -107,7 +107,7 @@ const Home = () => {
         });
       }
     },
-    [waithingForDriver]
+    [waitingForDriver]
   );
   return (
     <div className="h-screen relative overflow-hidden">
@@ -200,10 +200,10 @@ const Home = () => {
         <LookingForDriver setVehicleFound={setVehicleFound} />
       </div>
       <div
-        ref={waithingForDriver}
+        ref={waitingForDriverRef}
         className="fixed w-full z-10 bottom-0   bg-white px-3 py-6 pt-12"
       >
-        <WaitingForDriver setWaithingForDriver={setWaithingForDriver} />
+        <WaitingForDriver setWaitingForDriver={setWaitingForDriver} />
       </div>
     </div>
   );
